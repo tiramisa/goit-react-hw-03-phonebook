@@ -21,14 +21,14 @@ export class App extends Component {
   }
   handleAddContact = newContact => {
     if (this.handleGetUniqueContacts(newContact.name)) {
-      this.setState(({ prevState }) => ({
+      this.setState(prevState => ({
         contacts: [...prevState.contacts, newContact],
       }));
     }
   };
 
   handleRemoveContact = id => {
-    this.setState(({ prevState }) => ({
+    this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
   };
@@ -38,7 +38,7 @@ export class App extends Component {
     const isExistContact = !!contacts.find(contact => contact.name === name);
 
     if (isExistContact) {
-      alert('Контакт уже существует');
+      alert('Контакт уже существует, убей его и создай новый:)');
     }
 
     return !isExistContact;
